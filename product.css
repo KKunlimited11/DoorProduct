@@ -24,7 +24,8 @@ margin: 0;
 padding: 0;
 font-family: "Roboto", sans-serif;
 background-color: #d99547be;
-background-position: cover;
+background-position: center;
+   background-size: cover;
 background-repeat: no-repeat;
  }
  h1,h2, h3{
@@ -629,7 +630,6 @@ background-repeat: no-repeat;
     align-items: center;
     width: 100%;
     padding: 10px;
-     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     gap:20px;
     
@@ -845,7 +845,8 @@ font-size: 16px;
 .product_popup_image img{
     width:100%;
     max-width:700px;
-    height:350px;
+  height:auto;
+   max-height:350px;
     object-fit:cover;
     border-radius:10px;
 }
