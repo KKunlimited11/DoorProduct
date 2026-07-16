@@ -1352,21 +1352,54 @@ document.querySelectorAll(".wishlist").forEach(function(heart){
     });
 
 });
+<div class="product_popup">
 
-    <div class="product_popup">
     <div class="close" onclick="close_popup()">
-    <i class="fa-solid fa-xmark"></i>
-</div>
-     <div class="product_popup_image"> <img src="" class="popup_image" alt=""></div>
-    <h2 class="popup-name">Name: </h2 >
-    <p class="popup_size"> </p>
-    <p class="popup_type"> type</p>
-    <p class="popup_price">price: </p>
-    <span> Amount of doors</span>
-    <input type="number" value="1" placeholder="enter amount of door" class="quantity">
-    <h3 class="total">Total:929</h3>
-    <button class="order" onclick=order()> Order</button>
+        <i class="fa-solid fa-xmark"></i>
     </div>
+
+    <div class="popup_content">
+
+        <div class="popup_left">
+            <div class="product_popup_image">
+                <img src="" class="popup_image" alt="">
+            </div>
+        </div>
+
+        <div class="popup_right">
+
+            <h2 class="popup-name"></h2>
+
+            <div class="rating">
+                ★★★★★ <span>(4.9)</span>
+            </div>
+
+            <p class="popup_type"></p>
+
+            <p class="popup_size"></p>
+
+            <p class="popup_price"></p>
+
+            <label class="qty_label">Quantity</label>
+
+            <input
+                type="number"
+                value="1"
+                min="1"
+                class="quantity">
+
+            <h3 class="total"></h3>
+
+            <button class="order" onclick="order()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Order Now
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
     <script>
         
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
