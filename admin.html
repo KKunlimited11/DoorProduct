@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoorPro Admin Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="admin.css">
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    padding:30px;
+}
+
+.container{
+    width:min(1000px,95%);
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#8B4513;
+    margin-bottom:30px;
+}
+
+form{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    margin-bottom:30px;
+}
+
+form input{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:16px;
+}
+
+form button{
+    padding:12px;
+    background:#8B4513;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:17px;
+}
+
+form button:hover{
+    background:#5f2f0b;
+}
+
+.product{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
+    margin-bottom:15px;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.product img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.buttons button{
+    margin-left:10px;
+    padding:8px 15px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.edit{
+    background:#f39c12;
+    color:white;
+}
+
+.delete{
+    background:#e74c3c;
+    color:white;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>DoorPro Admin Dashboard</h1>
+
+    <form id="productForm">
+
+        <input type="text" id="name" placeholder="Product Name" required>
+
+        <input type="number" id="price" placeholder="Price" required>
+
+        <input type="text" id="category" placeholder="Category">
+
+        <input type="text" id="image" placeholder="Image Path">
+
+        <button type="submit">
+            Add Product
+        </button>
+
+    </form>
+
+    <hr>
+
+    <div id="productList"></div>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

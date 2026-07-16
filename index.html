@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doorpro - Premium Quality Doors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="Doorpro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="door.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+    <div id="progressBar"></div>
+    <button id="topBtn">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+    
+    <header>
+
+<nav class="navbar">
+
+    <!-- Logo -->
+    <div class="logo">
+        <a href="#">
+            <i class="fa-solid fa-door-open"></i>
+            DoorPro
+        </a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="nav_links">
+
+        <li><a href="#home">Home</a></li>
+
+        <li><a href="#products">Products</a></li>
+
+        <li><a href="#about_us">About Us</a></li>
+
+        <li><a href="#feature">Features</a></li>
+
+        <li><a href="#contact-section">Contact</a></li>
+
+        <li>
+            <a href="cart.html" class="cart_icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartCount">0</span>
+            </a>
+        </li>
+
+        <li>
+            <button onclick="getquote()" class="nav_button">
+                Get a Quote
+            </button>
+        </li>
+
+    </ul>
+
+    <!-- Mobile Menu Icon -->
+    <div class="menu_icon" onclick="showsidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Sidebar -->
+    <ul class="side-bar">
+
+        <li class="close_btn" onclick="closesidebar()">
+            <i class="fa-solid fa-xmark"></i>
+        </li>
+
+        <li><a href="#home">Home</a></li>
+
+        <li><a href="#products">Products</a></li>
+
+        <li><a href="#about_us">About Us</a></li>
+
+        <li><a href="#feature">Features</a></li>
+
+        <li><a href="#contact-section">Contact</a></li>
+
+        <li>
+            <a href="cart.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+                <span id="mobileCartCount">0</span>
+            </a>
+        </li>
+
+        <li>
+            <button onclick="getquote()" class="side-bar_button">
+                Get a Quote
+            </button>
+        </li>
+
+    </ul>
+
+</nav>
+
+</header>
+     <main>
+<div class="overlay" onclick="closeForm()"></div>
+<form class="form" action="https://formspree.io/f/xjgnkapv" method="POST">
+
+    <img onclick="closeForm()" src="close-icon.svg" alt="Close">
+
+    <h2>
+    <i class="fa-solid fa-file-signature"></i>
+    Get a Free Quote
+</h2>
+
+    <p>Fill in your details and we'll contact you shortly.</p>
+
+    <label>Full Name</label>
+   <div class="input_box">
+    <i class="fa-solid fa-user"></i>
+    <input type="text" required="required" placeholder="Enter your full name">
+</div>
+
+    <label>Phone Number</label>
+  <div class="input_box">
+    <i class="fa-solid fa-phone"></i>
+    <input type="tel" required="required" placeholder="+234...">
+</div>
+
+    <label>Email Address</label>
+   <div class="input_box">
+    <i class="fa-solid fa-envelope"></i>
+    <input type="email"  placeholder="example@gmail.com">
+</div>
+
+   <div class="input_box">
+    <i class="fa-solid fa-door-open"></i>
+    <select>
+        <option>Select Door Type</option>
+        <option>Main Door</option>
+        <option>Glass Door</option>
+        <option>Security Door</option>
+        <option>Bedroom Door</option>
+    </select>
+</div>
+
+    <label>Quantity</label>
+    <input
+        type="number"
+        name="quantity"
+        min="1"
+        value="1"
+        required>
+
+    <label>Location</label>
+    <input
+        type="text"
+        name="location"
+        placeholder="City / State">
+
+    <label>Preferred Installation Date</label>
+    <input
+        type="date"
+        name="installationDate">
+
+    <label>Additional Details</label>
+    <textarea
+        name="message"
+        rows="5"
+        placeholder="Tell us about your project..."></textarea>
+
+    <button type="submit" class="quote_btn">
+    <i class="fa-solid fa-paper-plane"></i>
+    Request Quote
+</button>
+</form>
+
+<div class="success_message">
+    <i class="fa-solid fa-circle-check"></i>
+    <h2>Quote Request Sent!</h2>
+    <p>Thank you for contacting DoorPro. We'll get back to you shortly.</p>
+
+    <button onclick="closeForm()">Close</button>
+</div>
+
+
+    
+<section class="hero" id="home">
+
+    <div class="hero_content">
+
+        <span class="hero_badge">
+            <i class="fa-solid fa-shield-halved"></i>
+            Premium Quality Doors
+        </span>
+
+        <h1>
+            Beautiful Doors <br>
+            Designed For <span>Luxury</span>
+        </h1>
+
+        <p>
+            Discover premium wooden, security, glass and sliding doors
+            crafted for beauty, durability and maximum protection for
+            homes and offices.
+        </p>
+
+        <div class="hero_buttons">
+            <a href="product.html" class="btn_primary">
+                Shop Now
+            </a>
+
+            <a href="#contact-section" class="btn_secondary">
+                Get Quote
+            </a>
+        </div>
+
+        <div class="hero_stats">
+
+            <div class="stat">
+                <h2>500+</h2>
+                <p>Happy Clients</p>
+            </div>
+
+            <div class="stat">
+                <h2>10+</h2>
+                <p>Years Experience</p>
+            </div>
+
+            <div class="stat">
+                <h2>100%</h2>
+                <p>Quality Guarantee</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero_image">
+
+        <img src="National Door Company_ Exterior Doors.jpeg" alt="Door">
+
+        <div class="experience_card">
+            <h2>10+</h2>
+            <span>Years Experience</span>
+        </div>
+
+        <div class="review_card">
+            ⭐⭐⭐⭐⭐
+            <p>Trusted by 500+ Customers</p>
+        </div>
+
+    </div>
+
+</section>
+
+    <section class="products  reveal" id="products">
+       <div class="product_heading">
+
+    <span class="section_tag">
+        OUR COLLECTION
+    </span>
+
+    <h2>Explore Premium Doors</h2>
+
+    <p>
+        Browse our carefully selected collection of premium
+        wooden, security, glass and sliding doors designed
+        for beauty, durability and maximum protection.
+    </p>
+
+</div>
+
+<div class="door">
+
+    <div class="doors" id="main_door">
+
+        <span class="door_badge Best">Best Seller</span>
+
+         <div class="wishlist_home">
+        <i class="fa-regular fa-heart"></i>
+    </div>
+
+        <div class="door_card_image">
+            <img src="dark darkaesthetics home homedesign home houseinterior modern.jpeg" alt="Main Door">
+        </div>
+
+        <div class="door_words">
+
+    <h3>Main Door</h3>
+
+    <p>Elegant and strong wooden doors for homes and offices.</p>
+
+    <div class="door_info">
+
+        <span class="price">₦838,000</span>
+
+        <span class="rating">
+            <i class="fa-solid fa-star"></i>
+            4.9
+        </span>
+
+    </div>
+
+</div>
+
+        <a href="product.html" class="card_btn">View Details</a>
+    </div>
+
+
+
+
+    <div class="doors" id="glass_door">
+
+        <span class="door_badge new">New</span>
+
+         <div class="wishlist_home">
+        <i class="fa-regular fa-heart"></i>
+    </div>
+
+
+        <div class="door_card_image">
+            <img src="Glass Partition Dubai.jpeg" alt="Glass Door">
+        </div>
+
+       <div class="door_words">
+
+    <h3>Glass Door</h3>
+
+    <p>Modern glass doors that create a bright and luxurious look.</p>
+
+    <div class="door_info">
+
+        <span class="price">₦546,000</span>
+
+        <span class="rating">
+            <i class="fa-solid fa-star"></i>
+            4.9
+        </span>
+
+    </div>
+
+</div>
+
+        <a href="product.html" class="card_btn">View Details</a>
+    </div>
+
+
+    <div class="doors" id="security_door">
+
+        <span class="door_badge premium">Premium</span>
+
+
+         <div class="wishlist_home">
+        <i class="fa-regular fa-heart"></i>
+    </div>
+
+        <div class="door_card_image">
+            <img src="security_door1.jpg" alt="Security Door">
+        </div>
+
+       <div class="door_words">
+
+    <h3>Security Door</h3>
+
+    <p>Built with maximum strength to keep your property safe.</p>
+
+    <div class="door_info">
+
+        <span class="price">₦900,000</span>
+
+        <span class="rating">
+            <i class="fa-solid fa-star"></i>
+            4.9
+        </span>
+
+    </div>
+
+</div>
+
+        <a href="product.html" class="card_btn">View Details</a>
+    </div>
+
+
+    <div class="doors" id="bedroom_door">
+
+        <span class="door_badge popular">Popular</span>
+
+         <div class="wishlist_home">
+        <i class="fa-regular fa-heart"></i>
+    </div>
+
+
+        <div class="door_card_image">
+            <img src="bedroom_door1.jpeg" alt="Bedroom Door">
+        </div>
+
+       <div class="door_words">
+
+    <h3>Bedroom Door</h3>
+
+    <p>Beautiful interior doors designed for comfort and style.</p>
+
+    <div class="door_info">
+
+        <span class="price">₦600,000</span>
+
+        <span class="rating">
+            <i class="fa-solid fa-star"></i>
+            4.9
+        </span>
+
+    </div>
+
+</div>
+
+        <a href="product.html" class="card_btn">View Details</a>
+    </div>
+
+</div>
+    <section class="about_us reveal" id="about_us">
+
+    <div class="about_image">
+
+        <img src="_ (3).jpeg" alt="DoorPro">
+
+        <div class="experience_box">
+            <h2>15+</h2>
+            <p>Years of Experience</p>
+        </div>
+
+    </div>
+
+    <div class="about_content">
+
+        <span class="section_tag">ABOUT US</span>
+
+        <h2>Building Security With Style</h2>
+
+        <p>
+            DoorPro specializes in premium-quality doors for homes,
+            offices and commercial buildings. Our products combine
+            durability, elegance and advanced security to give every
+            customer peace of mind.
+        </p>
+
+        <div class="about_features">
+
+            <div class="feature_item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Premium Security</span>
+            </div>
+
+            <div class="feature_item">
+                <i class="fa-solid fa-award"></i>
+                <span>Quality Materials</span>
+            </div>
+
+            <div class="feature_item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Fast Delivery</span>
+            </div>
+
+            <div class="feature_item">
+                <i class="fa-solid fa-headset"></i>
+                <span>24/7 Support</span>
+            </div>
+
+        </div>
+
+        <a href="#products" class="btn_primary">
+            Explore Products
+        </a>
+
+    </div>
+
+</section>
+
+    <section class="feature  reveal" id="feature">
+       <div class="feature_heading">
+
+    <span class="section_tag">WHY CHOOSE US</span>
+
+    <h2>Why Thousands of Customers Trust DoorPro</h2>
+
+    <p>
+        We combine quality craftsmanship, premium materials,
+        modern designs and exceptional customer service to
+        deliver doors that last for years.
+    </p>
+
+</div>
+        <div class="feature_list">
+           <div class="feature_class">
+
+    <div class="feature_icon">
+        <img src="shild2.png" alt="High Quality">
+    </div>
+
+    <h3>High Quality</h3>
+
+    <p>
+        We manufacture every door using carefully selected,
+        durable materials.
+    </p>
+
+</div>
+
+
+
+            <div class="feature_class">
+
+    <div class="feature_icon">
+        <img src="durability.png" alt="durability">
+    </div>
+
+    <h3>Durable</h3>
+
+    <p>
+       Our doors are built to last long
+    </p>
+
+</div>
+
+           <div class="feature_class">
+
+    <div class="feature_icon">
+        <img src="Gemini_Generated_Image_u12ti2u12ti2u12t-removebg-preview.png" alt="MOdern design">
+    </div>
+
+    <h3>Modern Design </h3>
+
+    <p>
+      Stylish design for modern homes.
+    </p>
+
+</div>
+
+            <div class="feature_class">
+
+    <div class="feature_icon">
+        <img src="headph no bg.png" alt="High Quality">
+    </div>
+
+    <h3>Customer Support</h3>
+
+    <p>
+       We are always here to help you
+    </p>
+
+</div>
+        </div>
+    </section>
+</main>
+
+    <footer class="footer" id="contact-section">
+
+    <div class="footer_container">
+
+        <div class="footer_box">
+
+            <h2>DoorPro</h2>
+
+            <p>
+                Premium quality doors designed to provide
+                security, elegance and durability for every home
+                and commercial building.
+            </p>
+
+            <div class="socials">
+
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer_box">
+
+            <h3>Quick Links</h3>
+
+            <a href="#home">Home</a>
+
+            <a href="#products">Products</a>
+
+            <a href="#about_us">About</a>
+
+            <a href="#feature">Features</a>
+
+            <a href="#contact-section">Contact</a>
+
+        </div>
+
+
+        <div class="footer_box">
+
+            <h3>Products</h3>
+
+            <a href="product.html">Main Doors</a>
+
+            <a href="product.html">Glass Doors</a>
+
+            <a href="product.html">Security Doors</a>
+
+            <a href="product.html">Bedroom Doors</a>
+
+        </div>
+
+
+        <div class="footer_box">
+
+            <h3>Contact</h3>
+
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                +234 901 949 8465
+            </p>
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                kosokok1@gmail.com
+            </p>
+
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+                Ayetoro, Ogun State, Nigeria
+            </p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="copyright">
+
+        © 2026 DoorPro. All Rights Reserved.
+
+    </div>
+
+</footer>
+    <script>
+
+     
+const form = document.querySelector(".form");
+const overlay = document.querySelector(".overlay");
+
+function getquote(){
+    form.style.display = "flex";
+    overlay.style.display = "block";
+}
+
+function closeForm(){
+    form.style.display = "none";
+    overlay.style.display = "none";
+}
+
+    function showsidebar(){
+    document.querySelector(".side-bar").style.right = "0";
+}
+
+function closesidebar(){
+    document.querySelector(".side-bar").style.right = "-300px";
+}
+
+const quoteForm = document.querySelector(".form");
+
+quoteForm.addEventListener("submit", function () {
+    const btn = document.querySelector(".quote_btn");
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+});
+
+
+    let quotation= document.getElementsByTagName("form");
+    let heroBlur = document.getElementsByTagName("div");
+          
+     function getquote(){
+        quotation[0].style.display = "flex";
+     
+               let blur =heroBlur[0].style.filter ="blur(10px)";
+     console.log(blur)
+     }
+
+     function closeForm(){
+       console.log(quotation[0].style.display = "none");
+               let blur = heroBlur[0].style.filter="blur(0px)";
+               console.log(blur)
+     }
+
+     const reveals = document.querySelectorAll(".reveal");
+
+function revealSections() {
+
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(section => {
+
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if (sectionTop < windowHeight - 100) {
+            section.classList.add("active");
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", revealSections);
+
+// Run once when the page loads
+revealSections();
+
+
+     getquote();
+     closeForm();
+ 
+
+     document.querySelectorAll(".wishlist_home").forEach(heart => {
+
+    heart.addEventListener("click", function(){
+
+        const icon = this.querySelector("i");
+
+        icon.classList.toggle("fa-regular");
+        icon.classList.toggle("fa-solid");
+
+        icon.style.color =
+            icon.classList.contains("fa-solid")
+            ? "#e63946"
+            : "#666";
+
+    });
+
+});
+
+
+   const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 400){
+        topBtn.style.display = "block";
+    }else{
+        topBtn.style.display = "none";
+    }
+
+});
+
+topBtn.onclick = () =>{
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+};
+
+
+
+window.addEventListener("scroll", ()=>{
+
+    const totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+    const progress =
+        (window.scrollY / totalHeight) * 100;
+
+    document.getElementById("progressBar").style.width =
+        progress + "%";
+
+});
+
+document.querySelector(".form").style.display = "none";
+document.querySelector(".success_message").style.display = "none";
+
+
+
+    </script>
+</body>
+</html>

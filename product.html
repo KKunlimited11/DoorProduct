@@ -1,0 +1,1589 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>our products</title>
+    <link rel="stylesheet" href="product.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="way.js" defer></script>
+</head> 
+<body>
+    <header>
+
+
+<nav class="navbar">
+
+    <!-- Logo -->
+    <div class="logo">
+        <a href="#">
+            <i class="fa-solid fa-door-open"></i>
+            DoorPro
+        </a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="nav_links">
+
+        <li><a href="#home">Home</a></li>
+
+        <li><a href="#products">Products</a></li>
+
+        <li><a href="#about_us">About Us</a></li>
+
+        <li><a href="#feature">Features</a></li>
+
+        <li><a href="#contact-section">Contact</a></li>
+
+        <li>
+            <a href="cart.html" class="cart_icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartCount">0</span>
+            </a>
+        </li>
+
+        <li>
+            <button onclick="getquote()" class="nav_button">
+                Get a Quote
+            </button>
+        </li>
+
+    </ul>
+
+    <!-- Mobile Menu Icon -->
+    <div class="menu_icon" onclick="showsidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Sidebar -->
+    <ul class="side-bar">
+
+        <li class="close_btn" onclick="closesidebar()">
+            <i class="fa-solid fa-xmark"></i>
+        </li>
+
+        <li><a href="#home">Home</a></li>
+
+        <li><a href="#products">Products</a></li>
+
+        <li><a href="#about_us">About Us</a></li>
+
+        <li><a href="#feature">Features</a></li>
+
+        <li><a href="#contact-section">Contact</a></li>
+
+        <li>
+            <a href="cart.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+                <span id="mobileCartCount">0</span>
+            </a>
+        </li>
+
+        <li>
+            <button onclick="getquote()" class="side-bar_button">
+                Get a Quote
+            </button>
+        </li>
+
+    </ul>
+
+</nav>
+
+</header>
+     <main>
+<div class="overlay" onclick="closeForm()"></div>
+<form class="form" action="https://formspree.io/f/xjgnkapv" method="POST">
+
+    <img onclick="closeForm()" src="close-icon.svg" alt="Close">
+
+    <h2>
+    <i class="fa-solid fa-file-signature"></i>
+    Get a Free Quote
+</h2>
+
+    <p>Fill in your details and we'll contact you shortly.</p>
+
+    <label>Full Name</label>
+   <div class="input_box">
+    <i class="fa-solid fa-user"></i>
+    <input type="text" required="required" placeholder="Enter your full name">
+</div>
+
+    <label>Phone Number</label>
+  <div class="input_box">
+    <i class="fa-solid fa-phone"></i>
+    <input type="tel" required="required" placeholder="+234...">
+</div>
+
+    <label>Email Address</label>
+   <div class="input_box">
+    <i class="fa-solid fa-envelope"></i>
+    <input type="email"  placeholder="example@gmail.com">
+</div>
+
+   <div class="input_box">
+    <i class="fa-solid fa-door-open"></i>
+    <select>
+        <option>Select Door Type</option>
+        <option>Main Door</option>
+        <option>Glass Door</option>
+        <option>Security Door</option>
+        <option>Bedroom Door</option>
+    </select>
+</div>
+
+    <label>Quantity</label>
+    <input
+        type="number"
+        name="quantity"
+        min="1"
+        value="1"
+        required>
+
+    <label>Location</label>
+    <input
+        type="text"
+        name="location"
+        placeholder="City / State">
+
+    <label>Preferred Installation Date</label>
+    <input
+        type="date"
+        name="installationDate">
+
+    <label>Additional Details</label>
+    <textarea
+        name="message"
+        rows="5"
+        placeholder="Tell us about your project..."></textarea>
+
+    <button type="submit" class="quote_btn">
+    <i class="fa-solid fa-paper-plane"></i>
+    Request Quote
+</button>
+</form>
+
+<div class="success_message">
+    <i class="fa-solid fa-circle-check"></i>
+    <h2>Quote Request Sent!</h2>
+    <p>Thank you for contacting DoorPro. We'll get back to you shortly.</p>
+
+    <button onclick="closeForm()">Close</button>
+</div>
+<script>
+                let sidebar =document.querySelector(".side-bar");
+                let quotationForm = document.getElementById("quotationForm");
+
+                
+                function showsidebar(){
+                    sidebar.style.display = "flex";
+                }
+                function closesidebar(){
+                   console.log( sidebar.style.display = "none");
+                }
+                showsidebar();
+                closesidebar();
+            </script>     
+    </header>
+
+<script>
+    let quotation= document.getElementsByTagName("form");
+   let heroBlur = document.querySelector(".door_container");
+          
+     function getquote(){
+        quotation[0].style.display = "flex";
+     
+               heroBlur.style.filter = "blur(8px)";
+     
+     }
+
+     function closeForm(){
+       console.log(quotation[0].style.display = "none");
+             heroBlur.style.filter = "blur(0px)";
+               
+     }
+
+</script>
+
+
+
+<div class="search-container">
+        <!-- The Search Box -->
+        <input type="text" id="searchInput"  placeholder="   Search for door...">
+    </div>
+    <div class="result">
+    </div>
+
+    <div class="filter_buttons">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="wood">Wood</button>
+    <button data-filter="metal">Metal</button>
+    <button data-filter="glass">Glass</button>
+    <button data-filter="security">Security</button>
+    <button data-filter="sliding">Sliding</button>
+</div>
+ 
+
+    <div class="door_container">
+
+
+
+        <div class="door_cards" data-category="metal">
+
+    <div class="product_badge">NEW</div>
+
+    <div class="wishlist">
+        <i class="fa-regular fa-heart"></i>
+    </div>
+
+    <div class="door_cards_image">
+     <img src="SAFIRA 31 - grille G003.jpeg" alt="">
+    </div>
+
+    <h3 class="door_name">Modern Wood Front Door, Custom Exterior Wooden Door, CNC</h3>
+
+    <div class="rating">
+        ★★★★★ <span>(4.9)</span>
+    </div>
+
+    <p class="door_type">Type: Metal</p>
+
+    <p class="door_size">Size: Standard</p>
+
+    <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+
+    <button onclick="buy(this)">
+        <i class="fa-solid fa-cart-shopping"></i>
+        Buy Now
+    </button>
+
+</div>
+
+
+
+
+        <div class="door_cards" data-category="wood">
+
+    <div class="product_badge">NEW</div>
+
+    <div class="wishlist">
+        <i class="fa-regular fa-heart"></i>
+    </div>
+
+    <div class="door_cards_image">
+        <img src="Door Alternative — Smoked Oak & Dark Chrome.jpeg" alt="">
+    </div>
+
+    <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+
+        <span>(4.8)</span>
+    </div>
+
+    <h3 class="door_name">
+        Modern Wood Front Door
+    </h3>
+
+    <p class="door_type">
+        Type: Metal Door
+    </p>
+
+    <p class="door_size">
+        Size: 7ft × 3ft
+    </p>
+
+   <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+
+    <button onclick="buy(this)">
+        <i class="fas fa-shopping-cart"></i>
+        Buy Now
+    </button>
+
+</div>
+
+
+
+
+          <div class="door_cards" data-category="wood">
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i>
+</div>
+            <div class="door_cards_image">
+                <img src="Main Door Design.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> Main door design</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: wood </p>
+            <p class="door_size">Size: </p>
+
+
+        <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+            <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+
+
+          <div class="door_cards" data-category="metal">
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i>
+</div>
+            <div class="door_cards_image">
+                <img src="Entry Door Design for separate employee with Elegant Name Plate.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> Entry Door Design for separate employee with Elegant Name Plate</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: metal </p>
+            <p class="door_size">Size: </p>
+
+
+           <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+            <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+          <div class="door_cards" data-category="glass">
+
+    <div class="product_badge">NEW</div>
+
+    <div class="wishlist">
+        <i class="fa-regular fa-heart"></i>
+    </div>
+            <div class="door_cards_image">
+                <img src="Wall Design Ideas for Living Rooms with Partition.jpeg" alt="">
+            </div>
+            <h3 class="door_name">Wall Design Ideas for Living Rooms with Partition </h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: Glass door </p>
+            <p class="door_size">Size: </p>
+
+
+          <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+          <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+          <div class="door_cards" data-category="glass">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i>
+    </div>
+
+            <div class="door_cards_image">
+                <img src="Glass Partition Dubai.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> Glass Partition Dubai</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: Glass </p>
+            <p class="door_size">Size: </p>
+
+
+            <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+           <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+          <div class="door_cards" data-category="sliding">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="Aluminum folding door.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> Aluminum folding door</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: Aluminum </p>
+            <p class="door_size">Size: defult </p>
+
+        <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+            <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+          <div class="door_cards" data-category="sliding">
+
+            <div class="product_badge">NEW</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i>
+            </div>
+            <div class="door_cards_image">
+                <img src="TOP-hanged sliding doors.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> TOP-hanged sliding doors</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: sliding door</p>
+            <p class="door_size">Size: </p>
+       <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+           <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+        
+
+
+
+
+
+
+        <div class="door_cards" data-category="security">
+
+            <div class="product_badge">NEW</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i>
+            </div>
+            <div class="door_cards_image">
+                <img src="_ (11).jpeg" alt="">
+            </div>
+            <h3 class="door_name">Modern Steel Design Door _ Square Top </h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: 7ft</p>
+        <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+          <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+        <div class="door_cards" data-category="metal">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="secure jooper.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> secure jooper</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: Security door </p>
+            <p class="door_size">Size: </p>
+          <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+           <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+        
+        <div class="door_cards" data-category="sliding">
+
+            <div class="product_badge">NEW</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="22 Dark Gray Front Door Ideas for Modern Curb Appeal (2).jpeg" alt="">
+            </div>
+            <h3 class="door_name"> 22 Dark Gray Front Door Ideas for Modern Curb Appeal </h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+       <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+          <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+        
+        
+        <div class="door_cards" data-category="metal">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="brown asteric door.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> brown asteric door</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: secure metal door </p>
+            <p class="door_size">Size: </p>
+       <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+             <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+          <div class="door_cards" data-category="security">
+
+            <div class="product_badge">NEW</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="Door Alternative — Smoked Oak & Dark Chrome.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> Door Alternative — Smoked Oak & Dark Chrome</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: thick Security door  </p>
+            <p class="door_size">Size: </p>
+       <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+        <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+
+          <div class="door_cards" data-category="metal">
+
+            <div class="product_badge">NEW</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="BAY WINDOW – Bancos, homeoffices, camas e muita paz.jpeg" alt="">
+            </div>
+            <h3 class="door_name">Bay Window</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: Metal door </p>
+            <p class="door_size">Size: default </p>
+         <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+           <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+
+
+          <div class="door_cards" data-category="security">
+
+            <div class="product_badge">NEW</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="Premium Craftsmanship_ Handcrafted Door Pulls That Impress.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> Premium Craftsmanship_ Handcrafted Door Pulls That Impress </h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+           <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+             <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+            <div class="door_cards" data-category="sliding">
+
+            <div class="product_badge">NEW</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="SAFIRA 31 - grille G003.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> SAFIRA 31 - grille G003</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type:Safari grill </p>
+            <p class="door_size">Size: </p>
+          <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+            <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+            <div class="door_cards" data-category="security">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="The Art of Modern Partitions.jpeg" alt="">
+            </div>
+            
+            <h3 class="door_name"> The Art of Modern Partitions</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+         <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+            <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+            
+
+        <div class="door_cards" data-category="security">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="Valencia Scroll Security Door _ Decorative Wrought Iron Steel Entry Screen.jpeg" alt="">
+            </div>
+            
+            <h3 class="door_name">Valencia Scroll Security Door _ Decorative Wrought Iron Steel Entry Screen</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+           <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+             <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+
+            <div class="door_cards" data-category="sliding">
+
+            <div class="product_badge">NEW</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="Wall Design Ideas for Living Rooms with Partition.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> Wall Design Ideas for Living Rooms with Partition</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: Living room </p>
+            <p class="door_size">Size: </p>
+          <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+             <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+        
+            <div class="door_cards" data-category="security">
+
+            <div class="product_badge">NEW</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="Living Room Partition Designs.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> Living Room Partition Designs</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+       <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+             <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+        <div class="door_cards" data-category="metal">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="Slime Narrow Border Line Aluminum Interior Glass Bifold Door Luxury Hanging Partition Wall Folding (1).jpeg" alt="">
+            </div>
+            <h3 class="door_name"> Slime Narrow Border Line Aluminum Interior Glass Bifold Door Luxury </h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+         <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+             <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+        <div class="door_cards" data-category="sliding">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="Aluminum folding door.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> Aluminum folding door</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+          <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+             <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+        
+
+
+        <div class="door_cards" data-category="security">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="Puerta moderna con diseño de lineas (1).jpeg" alt="">
+            </div>
+            <h3 class="door_name">
+Puerta moderna con diseño de lineas (1)
+</h3>
+<div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type:Secure italy door</p>
+            <p class="door_size">Size: </p>
+           <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+           <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+
+
+    <div class="door_cards" data-category="wood">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="22 Dark Gray Front Door Ideas for Modern Curb Appeal (2).jpeg" alt="">
+            </div>
+            <h3 class="door_name"> 22 Dark Gray Front Door Ideas for Modern Curb Appeal</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+           <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+            <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+        <div class="door_cards" data-category="sliding">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="images/oomodern (1).jpeg" alt="">
+            </div>
+            <h3 class="door_name"> dark darkaesthetics home homedesign home houseinterior modern</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+          <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+             <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+        <div class="door_cards" data-category="sliding">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="Elegant Aluminum Alloy Frame Entrance Doors with Tempered Glass Low Maintenance Exterior Doors.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> Elegant Aluminum Alloy Frame Entrance Doors with Tempered Glass Low Maintenance Exterior Doors</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+          <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+             <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+
+        <div class="door_cards" data-category="sliding">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="best window grill design (1).jpeg" alt="">
+            </div>
+            <h3 class="door_name"> 
+best window grill design (1)
+</h3>
+<div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type:window  </p>
+            <p class="door_size">Size: auto </p>
+          <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+           <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+        <div class="door_cards" data-category="security">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i>
+</div>
+
+            <div class="door_cards_image">
+                <img src="BAY WINDOW – Bancos, homeoffices, camas e muita paz.jpeg" alt="">
+            </div>
+            <h3 class="door_name">BAY WINDOW Bancos, homeoffices, camas e muita paz</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+          <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+            <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+
+        <div class="door_cards" data-category="metal">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i></div>
+
+            <div class="door_cards_image">
+                <img src="National Door Company_ Exterior Doors.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> National Door Company_ Exterior Doors</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: design door main  </p>
+            <p class="door_size">Size: </p>
+           <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+           <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+
+
+        <div class="door_cards" data-category="sliding">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i>
+</div>
+            <div class="door_cards_image">
+                <img src="Modern Wood Front Door, Custom Exterior Wooden Door, CNC Carved Entry Door, Luxury Main Entrance Door, Mid Century Modern Door, Wood Door.jpeg" alt="">
+            </div>
+            <h3 class="door_name"> modern window 2025</h3>
+      <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+          <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+           <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+        <div class="door_cards" data-category="wood">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i>
+</div>
+            <div class="door_cards_image">
+                <img src="" alt="">
+            </div>
+            <h3 class="door_name"> L</h3>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+           <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+           <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+        <div class="door_cards" data-category="security">
+
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i>
+            </div>
+            <div class="door_cards_image">
+                <img src="_ (8).jpeg" alt="">
+            </div>
+            <h3 class="door_name"> secure door</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+           <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+            <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+
+        <div class="door_cards" data-category="security">
+            <div class="product_badge">SALE</div>
+            <div class="wishlist">
+    <i class="fa-regular fa-heart"></i>
+</div>
+            <div class="door_cards_image">
+                <img src="/_ (3).jpeg" alt="">
+            </div>
+            <h3 class="door_name"> Entrance</h3>
+            <div class="rating">
+    ★★★★★ <span>(4.9)</span>
+</div>
+            <p class="door_type">Type: </p>
+            <p class="door_size">Size: </p>
+          <div class="price_box">
+    <span class="old_price">₦950,000</span>
+
+    <div class="price_row">
+        <div class="door_price">₦838,000</div>
+        <span class="discount">12% OFF</span>
+    </div>
+</div>
+             <button onclick="buy(this)">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Buy Now
+</button>
+        </div>
+
+
+<div class="order_form">
+    <h2 class="order_message">Thanks For patronage you will get feedback from us</h2>
+    <p>Enter your phone number</p>
+    <input class="order_form_input" type="tel" maxlength="17" value="+234" placeholder="+234 00 000 000 ">
+    <button class="ok" onclick=ok()>OK</button>
+</div>
+
+  <script>
+        let searchBox = document.getElementById("searchInput");
+        let doors = document.querySelectorAll(".door_cards");
+        
+
+        console.log(doors);
+
+
+        searchBox.addEventListener("keyup", function(){
+            let searchText = searchBox.value.toLowerCase();
+
+            doors.forEach(function(door){
+                let name = door.querySelector(".door_name").textContent.toLowerCase();
+                let type = door.querySelector(".door_type").textContent.toLowerCase();
+                let size = door.querySelector(".door_size").textContent.toLowerCase();
+                let price = door.querySelector(".door_price").textContent.toLowerCase();
+
+                if(name.includes(searchText)||
+                   type.includes(searchText)||
+                    size.includes(searchText)||
+                    price.includes(searchText)){
+                        door.style.display = "block";
+                    }else{door.style.display = "";}
+         } );
+        }
+    
+    )
+    </script>
+    
+
+document.querySelectorAll(".wishlist").forEach(function(heart){
+
+    heart.addEventListener("click", function(){
+
+        const icon = this.querySelector("i");
+
+        icon.classList.toggle("fa-solid");
+        icon.classList.toggle("fa-regular");
+
+        this.classList.toggle("liked");
+
+    });
+
+});
+
+    <div class="product_popup">
+    <div class="close" onclick=close_popup() ><img src="file:///home/chronos/u-76151dc4dbb2f2d2119e5b8accbb6cbf0419d930/MyFiles/Downloads/close_24.svg"> </div>
+     <div class="product_popup_image"> <img src="" class="popup_image" alt=""></div>
+    <h2 class="popup-name">Name: </h2 >
+    <p class="popup_size"> </p>
+    <p class="popup_type"> type</p>
+    <p class="popup_price">price: </p>
+    <span> Amount of doors</span>
+    <input type="number" value="1" placeholder="enter amount of door" class="quantity">
+    <h3 class="total">Total:929</h3>
+    <button class="order" onclick=order()> Order</button>
+    </div>
+    <script>
+        
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const searchInput = document.getElementById("searchInput");
+const filterButtons = document.querySelectorAll(".filter_buttons button");
+const doorCards = document.querySelectorAll(".door_cards");
+
+const popup = document.querySelector(".product_popup");
+const popupName = document.querySelector(".popup-name");
+const popupType = document.querySelector(".popup_type");
+const popupSize = document.querySelector(".popup_size");
+const popupPrice = document.querySelector(".popup_price");
+const popupImage = document.querySelector(".product_popup_image img");
+
+const PopupInput = document.querySelector(".quantity");
+const total = document.querySelector(".total");
+
+const orderForm = document.querySelector(".order_form");
+
+let CurrentPrice = 0;
+let activeFilter = "all";
+let searchQuery = "";
+
+
+
+
+
+function updateDisplay() {
+
+    doorCards.forEach(card => {
+
+        const category = card.dataset.category;
+        const title = card.querySelector(".door_name").textContent.toLowerCase();
+
+        const matchFilter =
+            activeFilter === "all" || category === activeFilter;
+
+        const matchSearch =
+            title.includes(searchQuery);
+
+        card.style.display =
+            matchFilter && matchSearch ? "block" : "none";
+
+    });
+
+}
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", function(){
+
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+
+        this.classList.add("active");
+
+        activeFilter = this.dataset.filter;
+
+        updateDisplay();
+
+    });
+
+});
+
+searchInput.addEventListener("input", function(){
+
+    searchQuery = this.value.toLowerCase().trim();
+
+    updateDisplay();
+
+});
+
+
+
+
+
+document.querySelectorAll(".wishlist").forEach(heart=>{
+
+    heart.addEventListener("click",function(){
+
+        const icon=this.querySelector("i");
+
+        icon.classList.toggle("fa-regular");
+        icon.classList.toggle("fa-solid");
+
+        this.classList.toggle("liked");
+
+    });
+
+});
+
+
+function buy(button) {
+
+    // Open popup
+    popup.style.display = "flex";
+
+    // Get the clicked product card
+    const card = button.parentElement;
+
+    // Get product details
+    const image = card.querySelector(".door_cards_image img");
+    const name = card.querySelector(".door_name").textContent;
+    const type = card.querySelector(".door_type").textContent;
+    const size = card.querySelector(".door_size").textContent;
+
+    const price = Number(
+        card.querySelector(".door_price").textContent.replace(/[₦,\s]/g, "")
+    );
+
+    // Show details in popup
+    popupName.textContent = name;
+    popupType.textContent = type;
+    popupSize.textContent = size;
+    popupPrice.textContent = "Price: ₦" + price.toLocaleString();
+    popupImage.src = image.src;
+
+    // Save current price
+    CurrentPrice = price;
+
+
+    PopupInput.addEventListener("input", function () {
+
+    const qty = Number(PopupInput.value) || 1;
+
+    total.textContent =
+        "Total: ₦" + (qty * CurrentPrice).toLocaleString();
+
+});
+
+    // Reset quantity
+    PopupInput.value = 1;
+    total.textContent = "Total: ₦" + CurrentPrice.toLocaleString();
+
+    // Create product object
+    const product = {
+        name: name,
+        price: price,
+        image: image.src,
+        quantity: 1
+    };
+
+    // Check if already in cart
+    const existingProduct = cart.find(item => item.name === product.name);
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push(product);
+    }
+
+    // Save cart
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Update cart count
+    updateCartCount();
+
+    function updateCartCount() {
+
+    const cartCount = document.getElementById("cartCount");
+
+    if (cartCount) {
+        const totalItems = cart.reduce((sum, item) => {
+            return sum + item.quantity;
+        }, 0);
+
+        cartCount.textContent = totalItems;
+    }
+
+}
+}
+
+
+
+
+    function close_popup(){
+           console.log( popup.style.display ="none");
+        }
+function order(){
+   console.log( orderForm.style.display = "flex");
+    console.log(popup.style.display="none");
+}
+function ok(){
+    console.log(orderForm.style.display = "none");
+}
+
+document.querySelectorAll(".wishlist").forEach(function(heart){
+
+    heart.addEventListener("click", function(){
+
+        const icon = this.querySelector("i");
+
+        icon.classList.toggle("fa-solid");
+        icon.classList.toggle("fa-regular");
+
+        this.classList.toggle("liked");
+
+    });
+
+});
+
+
+document.querySelectorAll(".wishlist").forEach(function(heart){
+
+    heart.addEventListener("click", function(){
+
+        const icon = this.querySelector("i");
+
+        icon.classList.toggle("fa-solid");
+        icon.classList.toggle("fa-regular");
+
+        this.classList.toggle("liked");
+
+    });
+
+});
+
+
+    
+    </script>
+</body>
+</html>

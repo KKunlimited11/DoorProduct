@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+
+    <link rel="stylesheet" href="product.css">
+
+    <style>
+        body{
+            font-family:Poppins,sans-serif;
+            background:#f5f5f5;
+            padding:30px;
+        }
+
+        .cart_item{
+            display:flex;
+            gap:20px;
+            align-items:center;
+            background:white;
+            padding:15px;
+            margin-bottom:15px;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,.15);
+        }
+
+        .cart_item img{
+            width:120px;
+            height:120px;
+            object-fit:cover;
+            border-radius:8px;
+        }
+
+        .cart_info{
+            flex:1;
+        }
+
+        .cart_price{
+            color:#8B4513;
+            font-size:22px;
+            font-weight:bold;
+        }
+
+        .remove{
+            background:red;
+            color:white;
+            border:none;
+            padding:10px 15px;
+            cursor:pointer;
+            border-radius:6px;
+        }
+
+        #grandTotal{
+            font-size:28px;
+            margin-top:30px;
+            font-weight:bold;
+        }
+
+
+
+
+        .quantity_box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.quantity_box button{
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:5px;
+    background:#8B4513;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.quantity_box span{
+    font-size:18px;
+    font-weight:bold;
+}
+
+
+#checkoutBtn{
+    margin-top:20px;
+    width:250px;
+    height:50px;
+    border:none;
+    border-radius:8px;
+    background:#8B4513;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#checkoutBtn:hover{
+    background:#5f2f0b;
+}
+    </style>
+</head>
+
+<body>
+
+<h1>Your Shopping Cart</h1>
+
+<div id="cartContainer"></div>
+
+<h2 id="grandTotal"></h2>
+<button id="checkoutBtn">Proceed to Checkout</button>
+
+
+<h2>Customer Information</h2>
+
+<form id="checkoutForm" action="https://formspree.io/f/xjgnkapv" method="POST">
+
+    <input type="text" name="Full Name" placeholder="Full Name" required>
+
+    <input type="tel" name="Phone Number" placeholder="Phone Number" required>
+
+    <input type="email" name="Email" placeholder="Email Address" required>
+
+    <textarea
+        name="Delivery Address"
+        placeholder="Delivery Address"
+        rows="4"
+        required></textarea>
+
+    <!-- Hidden field -->
+    <input type="hidden" name="Order Details" id="orderDetails">
+
+    <button type="submit">Place Order</button>
+
+</form>
+
+
+<script >
+
+    let grandTotalAmount = 0;
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const cartContainer = document.getElementById("cartContainer");
+const grandTotal = document.getElementById("grandTotal");
+
+function displayCart() {
+
+    cartContainer.innerHTML = "";
+
+    let total = 0;
+
+    grandTotalAmount = total;
+
+    if (cart.length === 0) {
+        cartContainer.innerHTML = "<h2>Your cart is empty.</h2>";
+        grandTotal.textContent = "";
+        return;
+
+    }
+
+    cart.forEach((product, index) => {
+
+        total += product.price * product.quantity;
+
+        cartContainer.innerHTML += `
+            <div class="cart_item">
+                <img src="${product.image}" alt="${product.name}">
+
+                <div class="cart_info">
+                    <h2>${product.name}</h2>
+                    <p class="cart_price">₦${product.price.toLocaleString()}</p>
+                </div>
+
+                <div class="quantity_box">
+
+<button onclick="decreaseQuantity(${index})">-</button>
+
+<span>${product.quantity}</span>
+
+<button onclick="increaseQuantity(${index})">+</button>
+
+</div>
+
+                <button class="remove" onclick="removeItem(${index})">
+                    Remove
+                </button>
+            </div>
+        `;
+    });
+
+    grandTotal.textContent = `Grand Total: ₦${total.toLocaleString()}`;
+}
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    displayCart();
+}
+
+function increaseQuantity(index){
+
+    cart[index].quantity++;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    displayCart();
+
+}
+
+function decreaseQuantity(index){
+
+    if(cart[index].quantity > 1){
+
+        cart[index].quantity--;
+
+    }else{
+
+        cart.splice(index,1);
+
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    displayCart();
+
+}
+
+const checkoutForm = document.getElementById("checkoutForm");
+const orderDetails = document.getElementById("orderDetails");
+
+checkoutForm.addEventListener("submit", function () {
+
+    let order = "";
+
+    cart.forEach(product => {
+
+        order +=
+`Product: ${product.name}
+Price: ₦${product.price.toLocaleString()}
+Quantity: ${product.quantity}
+-------------------------
+`;
+
+    });
+
+    order += "\nGrand Total: ₦" + grandTotalAmount.toLocaleString();
+
+    orderDetails.value = order;
+
+});
+
+displayCart();
+
+
+document.getElementById("checkoutBtn").addEventListener("click", checkout);
+
+function checkout(){
+
+    if(cart.length === 0){
+        alert("Your cart is empty.");
+        return;
+    }
+
+    window.location.href = "checkout.html";
+
+}
+</script>
+
+</body>
+</html>
