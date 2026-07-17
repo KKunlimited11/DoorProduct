@@ -985,9 +985,11 @@ transform:scale(1);
 
 grid-template-columns:1fr;
 
-width:95%;
+width:90%;
+  height: 75vh;
 
 }
+  
 
 .popup_left{
 
