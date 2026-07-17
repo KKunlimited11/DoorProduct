@@ -741,10 +741,6 @@ background-repeat: no-repeat;
     
 }
 
-.door_cards:hover{
-    transform:scale(1.08);
-}
-
 
 .door_cards h3{
 padding-bottom: 5px;
