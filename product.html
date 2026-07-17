@@ -28,11 +28,11 @@
     <!-- Desktop Menu -->
     <ul class="nav_links">
 
-        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html">Home</a></li>
 
         <li><a href="product.html">Products</a></li>
 
-        <li><a href="index,html#about_us">About Us</a></li>
+        <li><a href="index.html#about_us">About Us</a></li>
 
         <li><a href="index.html#feature">Features</a></li>
 
@@ -67,7 +67,7 @@
 
         <li><a href="index.html#home">Home</a></li>
 
-        <li><a href="product,html">Products</a></li>
+        <li><a href="#products">Products</a></li>
 
         <li><a href="index.html#about_us">About Us</a></li>
 
@@ -1336,63 +1336,51 @@ best window grill design (1)
     
     )
     </script>
-    
 
-document.querySelectorAll(".wishlist").forEach(function(heart){
 
-    heart.addEventListener("click", function(){
+    <div class="product_popup">
 
-        const icon = this.querySelector("i");
+    <div class="popup_card">
 
-        icon.classList.toggle("fa-solid");
-        icon.classList.toggle("fa-regular");
-
-        this.classList.toggle("liked");
-
-    });
-
-});
-<div class="product_popup">
-
-    <div class="close" onclick="close_popup()">
-        <i class="fa-solid fa-xmark"></i>
-    </div>
-
-    <div class="popup_content">
+        <button class="close_popup" onclick="close_popup()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
 
         <div class="popup_left">
-            <div class="product_popup_image">
-                <img src="" class="popup_image" alt="">
-            </div>
+            <img src="" class="popupImage">
         </div>
 
         <div class="popup_right">
 
             <h2 class="popup-name"></h2>
 
-            <div class="rating">
-                ★★★★★ <span>(4.9)</span>
-            </div>
-
             <p class="popup_type"></p>
 
             <p class="popup_size"></p>
 
-            <p class="popup_price"></p>
+            <h3 class="popup_price"></h3>
 
-            <label class="qty_label">Quantity</label>
+            <label>Quantity</label>
 
-            <input
-                type="number"
-                value="1"
-                min="1"
-                class="quantity">
+           <div class="quantity_box">
 
-            <h3 class="total"></h3>
+    <button type="button" id="minus">−</button>
 
-            <button class="order" onclick="order()">
-                <i class="fa-solid fa-cart-shopping"></i>
-                Order Now
+    <input
+        class="quantity"
+        type="number"
+        value="1"
+        min="1"
+        readonly>
+
+    <button type="button" id="plus">+</button>
+
+</div>
+
+            <h2 class="total"></h2>
+
+            <button class="buy_btn" onclick="checkout()">
+                Proceed to Checkout
             </button>
 
         </div>
@@ -1413,9 +1401,14 @@ const popupName = document.querySelector(".popup-name");
 const popupType = document.querySelector(".popup_type");
 const popupSize = document.querySelector(".popup_size");
 const popupPrice = document.querySelector(".popup_price");
-const popupImage = document.querySelector(".product_popup_image img");
+let popupImage = document.querySelector(".popupImage");
+let currentProduct = null;
 
 const PopupInput = document.querySelector(".quantity");
+
+const plus = document.getElementById("plus");
+const minus = document.getElementById("minus");
+
 const total = document.querySelector(".total");
 
 const orderForm = document.querySelector(".order_form");
@@ -1472,7 +1465,7 @@ searchInput.addEventListener("input", function(){
 
 });
 
-
+//==============wishlist
 
 
 
@@ -1491,6 +1484,11 @@ document.querySelectorAll(".wishlist").forEach(heart=>{
 
 });
 
+
+
+
+
+//======================buy function
 
 function buy(button) {
 
@@ -1521,14 +1519,7 @@ function buy(button) {
     CurrentPrice = price;
 
 
-    PopupInput.addEventListener("input", function () {
 
-    const qty = Number(PopupInput.value) || 1;
-
-    total.textContent =
-        "Total: ₦" + (qty * CurrentPrice).toLocaleString();
-
-});
 
     // Reset quantity
     PopupInput.value = 1;
@@ -1542,22 +1533,37 @@ function buy(button) {
         quantity: 1
     };
 
-    // Check if already in cart
-    const existingProduct = cart.find(item => item.name === product.name);
+ currentProduct = product;
+  
 
-    if (existingProduct) {
-        existingProduct.quantity++;
-    } else {
-        cart.push(product);
+plus.addEventListener("click", () => {
+
+    PopupInput.value++;
+
+    total.textContent =
+        "Total: ₦" +
+        (PopupInput.value * CurrentPrice).toLocaleString();
+
+});
+
+minus.addEventListener("click", () => {
+
+    if(PopupInput.value > 1){
+
+        PopupInput.value--;
+
+        total.textContent =
+            "Total: ₦" +
+            (PopupInput.value * CurrentPrice).toLocaleString();
+
     }
 
-    // Save cart
-    localStorage.setItem("cart", JSON.stringify(cart));
+});
+}
 
-    // Update cart count
-    updateCartCount();
 
-    function updateCartCount() {
+
+  function updateCartCount() {
 
     const cartCount = document.getElementById("cartCount");
 
@@ -1570,7 +1576,55 @@ function buy(button) {
     }
 
 }
+
+
+
+updateCartCount();
+
+
+//popup input
+
+
+    PopupInput.addEventListener("input", function () {
+
+    const qty = Number(PopupInput.value) || 1;
+
+    total.textContent =
+        "Total: ₦" + (qty * CurrentPrice).toLocaleString();
+
+});
+
+
+//checkout
+
+
+function checkout(){
+
+    currentProduct.quantity = Number(PopupInput.value);
+
+    const existingProduct = cart.find(
+        item => item.name === currentProduct.name
+    );
+
+    if(existingProduct){
+
+        existingProduct.quantity += currentProduct.quantity;
+
+    }else{
+
+        cart.push(currentProduct);
+
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount();
+
+    window.location.href = "cart.html";
+
 }
+
+
 
 
 
@@ -1586,6 +1640,9 @@ function ok(){
     console.log(orderForm.style.display = "none");
 }
 
+
+
+
 document.querySelectorAll(".wishlist").forEach(function(heart){
 
     heart.addEventListener("click", function(){
@@ -1601,20 +1658,18 @@ document.querySelectorAll(".wishlist").forEach(function(heart){
 
 });
 
+//=========================================
 
-document.querySelectorAll(".wishlist").forEach(function(heart){
+popup.addEventListener("click", function(e){
 
-    heart.addEventListener("click", function(){
+    if(e.target === popup){
+        close_popup();
+    }
 
-        const icon = this.querySelector("i");
+});
 
-        icon.classList.toggle("fa-solid");
-        icon.classList.toggle("fa-regular");
-
-        this.classList.toggle("liked");
-
-    });
-
+document.querySelector(".popup_card").addEventListener("click", function(e){
+    e.stopPropagation();
 });
 
 
