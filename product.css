@@ -973,12 +973,19 @@ transform:scale(1);
 @media(max-width:768px){
 
 .popup_card{
-
+max-width: 400px;
+  max-height:90vh;
+  overflow-y:auto;
 grid-template-columns:1fr;
 
 width:95%;
 
 }
+  .popup_image img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+  }
   
 
 .popup_left{
