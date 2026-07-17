@@ -803,15 +803,6 @@ font-size: 16px;
 }
 
 
-@media(max-width:720px){
-  .product_popup{
-    height: 75vh;
-    margin: 5px auto;
-  }
-    
-  }
-}
-
 .product_popup{
     position:fixed;
     inset:0;
@@ -986,7 +977,6 @@ transform:scale(1);
 grid-template-columns:1fr;
 
 width:90%;
-  height: 75vh;
 
 }
   
