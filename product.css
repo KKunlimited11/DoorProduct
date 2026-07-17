@@ -803,7 +803,13 @@ font-size: 16px;
 }
 
 
-
+@media(max-width:720px){
+  .popup_card{
+    width:80%;
+    max-width:800px;
+    
+  }
+}
 
 .product_popup{
     position:fixed;
