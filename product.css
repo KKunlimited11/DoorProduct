@@ -804,8 +804,8 @@ font-size: 16px;
 
 
 @media(max-width:720px){
-  .popup{
-    height: 80vh;
+  .product_popup{
+    height: 75vh;
     margin: 5px auto;
   }
     
