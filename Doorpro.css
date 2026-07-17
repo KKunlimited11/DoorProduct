@@ -148,7 +148,8 @@ body{
 .side-bar{
     position:fixed;
     top:0;
-    right:-300px;
+    right:0;
+    display: none;
     width:280px;
     height:100vh;
     background:rgba(40,40,40,.98);
